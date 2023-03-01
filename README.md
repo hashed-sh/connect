@@ -39,7 +39,7 @@ To create a Nostr Connect instance, you need to provide the ephemeral key and th
 import { Connect } from '@nostr-connect/connect';
 
 
-const connect = new Connect({ secretKey: sk, relay: 'wss://nostr.vulpem.com' });
+const connect = new Connect({ secretKey: sk, relay: 'wss://relay.house' });
 connect.events.on('connect', ( walletPubkey:string ) => {
   console.log('connected with wallet: ' + walletPubkey);
 });
@@ -52,7 +52,7 @@ await connect.init();
 ```typescript
 const connectURI = new ConnectURI({
   target: webPK,
-  relay: 'wss://nostr.vulpem.com',
+  relay: 'wss://relay.house',
   metadata: {
     name: 'My Website',
     description: 'lorem ipsum dolor sit amet',

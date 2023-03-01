@@ -52,7 +52,7 @@ describe('ConnectURI', () => {
   it('roundtrip connectURI', async () => {
     const connectURI = new ConnectURI({
       target: `b889ff5b1513b641e2a139f661a661364979c5beee91842f8f0ef42ab558e9d4`,
-      relay: 'wss://nostr.vulpem.com',
+      relay: 'wss://relay.house',
       metadata: {
         name: 'Vulpem',
         description:
@@ -65,7 +65,7 @@ describe('ConnectURI', () => {
     expect(url.target).toBe(
       'b889ff5b1513b641e2a139f661a661364979c5beee91842f8f0ef42ab558e9d4'
     );
-    expect(url.relay).toBe('wss://nostr.vulpem.com');
+    expect(url.relay).toBe('wss://relay.house');
     expect(url.metadata.name).toBe('Vulpem');
     expect(url.metadata.description).toBe(
       'Enabling the next generation of bitcoin-native financial services'
@@ -85,7 +85,7 @@ describe('Connect', () => {
       // start listening for connect messages on the mobile app
       const remoteHandler = new MobileHandler({
         secretKey: mobileSK,
-        relay: 'wss://nostr.vulpem.com',
+        relay: 'wss://relay.house',
       });
       await remoteHandler.listen();
     } catch (error) {
@@ -129,7 +129,7 @@ describe('Connect', () => {
     // send the connect message to the web app from the mobile
     const connectURI = new ConnectURI({
       target: webPK,
-      relay: 'wss://nostr.vulpem.com',
+      relay: 'wss://relay.house',
       metadata: {
         name: 'My Website',
         description: 'lorem ipsum dolor sit amet',
@@ -145,7 +145,7 @@ describe('Connect', () => {
     // start listening for connect messages on the mobile app
     const remoteHandler = new MobileHandler({
       secretKey: mobileSK,
-      relay: 'wss://nostr.vulpem.com',
+      relay: 'wss://relay.house',
     });
 
     // define how to comnsume the event

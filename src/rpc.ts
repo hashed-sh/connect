@@ -34,7 +34,7 @@ export class NostrRPC {
   events = new EventEmitter();
 
   constructor(opts: { relay?: string; secretKey: string }) {
-    this.relay = opts.relay || 'wss://nostr.vulpem.com';
+    this.relay = opts.relay || 'wss://relay.house';
     this.self = {
       pubkey: getPublicKey(opts.secretKey),
       secret: opts.secretKey,
